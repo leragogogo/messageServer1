@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>messageServer1</name>
+    </assembly>
+    <members>
+        <member name="T:messageServer1.Controllers.InitializationController">
+            <summary>
+            Контроллер для инициализации списка пользователей и сообщений. 
+            </summary>
+        </member>
+        <member name="M:messageServer1.Controllers.InitializationController.CreateListUsers">
+            <summary>
+            Создание списка пользователей.
+            </summary>
+            <returns>Список пользователей.</returns>
+        </member>
+        <member name="M:messageServer1.Controllers.InitializationController.CreateListMessages(System.Int32,System.Collections.Generic.List{messageServer1.Models.User})">
+            <summary>
+            Создание списка сообщений.
+            </summary>
+            <param name="countOfUsers">Количество пользователей.</param>
+            <param name="users">Лист пользователей.</param>
+            <returns>Лист сообщений.</returns>
+        </member>
+        <member name="M:messageServer1.Controllers.InitializationController.InitializePost">
+            <summary>
+            Инициализация списка пользователей и сообщений.
+            </summary>
+            <returns>Статус ответа.</returns>
+        </member>
+        <member name="T:messageServer1.Controllers.MessageController">
+            <summary>
+            Контроллер для работы со списком сообщений.
+            </summary>
+        </member>
+        <member name="M:messageServer1.Controllers.MessageController.ExistUserWithEmail(System.String,System.Collections.Generic.List{messageServer1.Models.User})">
+            <summary>
+            Проверка что пользователь с такой почтой зарегистрирован.
+            </summary>
+            <param name="email">Почта пользователя.</param>
+            <param name="users">Список пользователей.</param>
+            <returns>true -  если зарегистрирован, иначе false.</returns>
+        </member>
+        <member name="M:messageServer1.Controllers.MessageController.SendNewMessage(System.String,System.String,System.String,System.String)">
+            <summary>
+            Отправление нового сообщения.
+            </summary>
+            <param name="subject">Тема сообщения.</param>
+            <param name="message">Текст сообщения.</param>
+            <param name="senderId">Почта отправителя.</param>
+            <param name="receiverId">Почта получателя.</param>
+            <returns>Код ответа.</returns>
+        </member>
+        <member name="M:messageServer1.Controllers.MessageController.GetMessagesBySenderIdAndReceiverId(System.String,System.String)">
+            <summary>
+            Возврат сообщений по почте отправителя и получателя.
+            </summary>
+            <param name="senderId">Почта отправителя.</param>
+            <param name="receiverId">Почта получателя.</param>
+            <returns>Код ответа и список сообщений.</returns>
+        </member>
+        <member name="M:messageServer1.Controllers.MessageController.GetMessagesBySenderId(System.String)">
+            <summary>
+            Возврат сообщений по почте отправителя.
+            </summary>
+            <param name="senderId">Почта отправителя.</param>
+            <returns>Код ответа и список сообщений.</returns>
+        </member>
+        <member name="M:messageServer1.Controllers.MessageController.GetMessagesByReceiverId(System.String)">
+            <summary>
+            Возврат сообщений по почте получателя.
+            </summary>
+            <param name="receiverId">Почта получателя.</param>
+            <returns>Код ответа и список сообщений.</returns>
+        </member>
+        <member name="T:messageServer1.Controllers.UserController">
+            <summary>
+            Контроллер для работы со списком пользователей.
+            </summary>
+        </member>
+        <member name="M:messageServer1.Controllers.UserController.OnlySymbolsFromAlfabet(System.String)">
+            <summary>
+            Проверка строки, что все ее символы это цифры 
+            или строчные,заглавные буквы латинского алфавита.
+            </summary>
+            <param name="str">Строка</param>
+            <returns>true - если строка корректна, иначе false.</returns>
+        </member>
+        <member name="M:messageServer1.Controllers.UserController.CheckEmail(System.String)">
+            <summary>
+            Проверка на то, что почта заканчивается на @gogogo.com
+            </summary>
+            <param name="email">Почта.</param>
+            <returns>true - если почта корректна, иначе false.</returns>
+        </member>
+        <member name="M:messageServer1.Controllers.UserController.RegistrationPost(System.String,System.String)">
+            <summary>
+            Регистрация нового пользователя.
+            </summary>
+            <param name="userName">Имя пользователя.</param>
+            <param name="email">Почта.</param>
+            <returns>Код ответа.</returns>
+        </member>
+        <member name="M:messageServer1.Controllers.UserController.GetAllUsers">
+            <summary>
+            Возврат всех пользователей.
+            </summary>
+            <returns>Код ответа и список пользователей.</returns>
+        </member>
+        <member name="M:messageServer1.Controllers.UserController.GetUserByEmail(System.String)">
+            <summary>
+            Возврат пользователя по его почте.
+            </summary>
+            <param name="email">Почта.</param>
+            <returns>Код ответа и пользователь.</returns>
+        </member>
+        <member name="T:messageServer1.Generation">
+            <summary>
+            Рандомная генерация.
+            </summary>
+        </member>
+        <member name="F:messageServer1.Generation.random">
+            <summary>
+            Рандом-генератор.
+            </summary>
+        </member>
+        <member name="F:messageServer1.Generation.alfabet">
+            <summary>
+            Алфавит.
+            </summary>
+        </member>
+        <member name="M:messageServer1.Generation.GenerateMessage">
+            <summary>
+            Генерация текста сообщения.
+            </summary>
+            <returns>Текст сообщения.</returns>
+        </member>
+        <member name="M:messageServer1.Generation.GenerateSubject">
+            <summary>
+            Генерация темы сообщения.
+            </summary>
+            <returns>Тема сообщения.</returns>
+        </member>
+        <member name="M:messageServer1.Generation.GenerateUserName">
+            <summary>
+            Генерация имени пользователя.
+            </summary>
+            <returns>Имя пользователя.</returns>
+        </member>
+        <member name="M:messageServer1.Generation.GenerateEmail">
+            <summary>
+            Генерация почты пользователя.
+            </summary>
+            <returns>Почта.</returns>
+        </member>
+        <member name="T:messageServer1.Models.MessageClass">
+            <summary>
+            Модель описывающая сообщения.
+            </summary>
+        </member>
+        <member name="P:messageServer1.Models.MessageClass.Subject">
+            <summary>
+            Тема сообщения.
+            </summary>
+        </member>
+        <member name="P:messageServer1.Models.MessageClass.Message">
+            <summary>
+            Текст сообщения.
+            </summary>
+        </member>
+        <member name="P:messageServer1.Models.MessageClass.SenderId">
+            <summary>
+            Почта отправителя.
+            </summary>
+        </member>
+        <member name="P:messageServer1.Models.MessageClass.ReceiverId">
+            <summary>
+            Почта получателя.
+            </summary>
+        </member>
+        <member name="T:messageServer1.Models.User">
+            <summary>
+            Модель, описывающая пользователя.
+            </summary>
+        </member>
+        <member name="P:messageServer1.Models.User.UserName">
+            <summary>
+            Имя пользователя.
+            </summary>
+        </member>
+        <member name="P:messageServer1.Models.User.Email">
+            <summary>
+            Почта.
+            </summary>
+        </member>
+        <member name="M:messageServer1.Models.User.CompareTo(System.Object)">
+            <summary>
+            Переопределенный метод для сравнения двух пользователей.
+            </summary>
+            <param name="obj">Второй пользователь.</param>
+            <returns>1 - если первый больше,-1 - второй больше. При равенстве - 0.</returns>
+        </member>
+        <member name="M:messageServer1.Models.User.Equals(System.Object)">
+            <summary>
+            Проверка на равенство двух пользователей.
+            </summary>
+            <param name="obj">Второй пользователь.</param>
+            <returns>True если равны, иначе False.</returns>
+        </member>
+        <member name="M:messageServer1.Models.User.GetHashCode">
+            <summary>
+            Предоставляет хеш-код пользователя.
+            </summary>
+            <returns>Хеш-код.</returns>
+        </member>
+        <member name="T:messageServer1.Program">
+            <summary>
+            Основной класс.
+            </summary>
+        </member>
+        <member name="M:messageServer1.Program.Main(System.String[])">
+            <summary>
+            Точка входа в программу.
+            </summary>
+            <param name="args">Дополнительные аргументы.</param>
+        </member>
+        <member name="M:messageServer1.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Создание хоста.
+            </summary>
+            <param name="args">Дополнительные аргументы.</param>
+        </member>
+        <member name="T:messageServer1.Startup">
+            <summary>
+            Технический класс.
+            </summary>
+        </member>
+        <member name="M:messageServer1.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="configuration">Конфигурация</param>
+        </member>
+        <member name="P:messageServer1.Startup.Configuration">
+            <summary>
+            Конфигурация.
+            </summary>
+        </member>
+        <member name="M:messageServer1.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Добавление служб в контейнер.
+            </summary>
+            <param name="services">Сервисы.</param>
+        </member>
+        <member name="M:messageServer1.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Настройка конвейера HTTP-запросов.
+            </summary>
+        </member>
+        <member name="T:messageServer1.WorkWithJson">
+            <summary>
+            Класс для работы с JSON файлами.
+            </summary>
+        </member>
+        <member name="M:messageServer1.WorkWithJson.WriteToJson``1(System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            Запиcь в JSON файл списка обьектов.
+            </summary>
+            <typeparam name="T">User или Message.</typeparam>
+            <param name="objects">Лист объектов.</param>
+            <param name="path">Путь до файла.</param>
+        </member>
+        <member name="M:messageServer1.WorkWithJson.ReadFromJson``1(System.String)">
+            <summary>
+            Чтение из JSON файла списка объектов.
+            </summary>
+            <typeparam name="T">User или Message.</typeparam>
+            <param name="path">Путь до файла.</param>
+            <returns>Лист объектов.</returns>
+        </member>
+    </members>
+</doc>
